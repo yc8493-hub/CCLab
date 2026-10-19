@@ -192,7 +192,8 @@ function draw() {
 
     let rotateSpeed = 0;
 
-    if (babyProgress > 0.5) { //when baby gradually mature--> start rotate like adult
+    if (babyProgress > 0.5) {
+      //when baby gradually mature--> start rotate like adult
       rotateSpeed = map(babyProgress, 0.5, 1, 0, 3);
     }
 
