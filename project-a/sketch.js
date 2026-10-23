@@ -1,10 +1,3 @@
-/*
-Template for IMA's Creative Coding Lab 
-
-Project A: Generative Creatures
-CCLaboratories Biodiversity Atlas 
-*/
-
 let babyX, babyY;
 let returnBx, returnBy;
 let babyBase = 150;
