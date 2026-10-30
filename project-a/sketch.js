@@ -1,10 +1,3 @@
-/*
-Template for IMA's Creative Coding Lab 
-
-Project A: Generative Creatures
-CCLaboratories Biodiversity Atlas 
-*/
-
 let babyX, babyY;
 let returnBx, returnBy;
 let babyBase = 150;
@@ -67,15 +60,15 @@ function draw() {
     }
   }
   // # stars  
-  drawStar(150, 65, 6, 0.08, 0, 255, 255, 255);
-  drawStar(250, 140, 5, 0.06, 40, 255, 255, 255);
-  drawStar(430, 85, 6, 0.07, 90, 255, 255, 255);
-  drawStar(610, 120, 5, 0.05, 130, 255, 255, 255);
-  drawStar(735, 190, 6, 0.09, 170, 255, 255, 255);
-  drawStar(320, 250, 8, 0.04, 30, 255, 100, 180);   // pink
-  drawStar(520, 300, 8, 0.05, 80, 100, 220, 255);   // cyan-blue
-  drawStar(690, 75, 7, 0.06, 120, 255, 210, 80);    // yellow
-  drawStar(760, 280, 9, 0.045, 160, 180, 120, 255); // purple
+  drawStar(150, 65, 6, 255, 255, 255);
+  drawStar(250, 140, 5, 255, 255, 255);
+  drawStar(430, 85, 6, 255, 255, 255);
+  drawStar(610, 120, 5, 255, 255, 255);
+  drawStar(735, 190, 6, 255, 255, 255);
+  drawStar(320, 250, 8, 255, 255, 255);   // pink
+  drawStar(520, 300, 8, 255, 255, 255);   // cyan-blue
+  drawStar(690, 75, 7, 255, 255, 255);    // yellow
+  drawStar(760, 280, 9, 255, 255, 255); // purple
 
   // # nest
   drawNest(200, 350, 34);
@@ -120,7 +113,7 @@ function draw() {
 
   } else if (lifeFrame < 3180) {
 
-    // Baby returns to Nest
+    // baby returns to Nest
     babyX = map(lifeFrame, 2880, 3180, returnBx, nestX);
     babyY = map(lifeFrame, 2880, 3180, returnBy, nestY);
 
@@ -242,7 +235,6 @@ function draw() {
     drawAdult();
     pop();
   }
-
 }
 
 // #6 draw baby
@@ -253,7 +245,7 @@ function drawBaby(babyDia, babyProgress) {
   let petalDist = map(babyProgress, 0, 1, babyDia / 4, 9);
   let centerDia = map(babyProgress, 0, 1, babyDia / 2, 18);
 
-  // color change ：purple to ice blue (base on the growing stage of baby)
+  // color change ：purple to ice blue to mint
   //useGPT to get the rgb range of color + get suggestion to divide color change into 2 stage using if,else
   let babyR, babyG, babyB;
 
@@ -348,14 +340,12 @@ function drawTentacle(startX, babyProgress) { //tentacle become shorter as baby 
   }
 }
 
-function drawStar(x, y, size, speed, offset, r, g, b) {
-  let twinkle = map(sin(frameCount * speed + offset), -1, 1, 80, 255);
-
+function drawStar(x, y, size, r, g, b) {
   push();
   translate(x, y);
   noStroke();
 
-  fill(r, g, b, twinkle);
+  fill(r, g, b, 255);
   beginShape();
   vertex(0, -size);
   vertex(size * 0.18, -size * 0.18);
