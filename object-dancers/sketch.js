@@ -28,6 +28,8 @@ class SheepDancer {
     this.bounce = 0;
   }
   update() {
+    push();
+    angleMode(DEGREES);
 
     this.time += 1;
     this.bodySwing = sin(this.time * 3) * 12;
@@ -36,6 +38,7 @@ class SheepDancer {
     this.earSwing = sin(this.time * 7) * 10;
     this.bounce = sin(this.time * 4) * 54;
 
+    pop();
   }
   display() {
     push();
