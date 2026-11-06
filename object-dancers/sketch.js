@@ -36,15 +36,25 @@ class SheepDancer {
     this.legSwing = sin(this.time * 6) * 10;
     this.earSwing = sin(this.time * 7) * 10;
     this.bounce = sin(this.time * 4) * 54;
-    // update properties here to achieve
-    // your dancer's desired moves and behaviour
+
   }
   display() {
     push();
     translate(this.x, this.y + this.bounce);
     rotate(this.bodySwing);
 
-    //arms
+    this.drawArms();
+    this.drawLegs();
+    this.drawEars();
+    this.drawBody();
+    this.drawHorns();
+    this.drawEyes();
+    this.drawBlush();
+    this.drawHair();
+
+    pop();
+  }
+  drawArms() {
     stroke(105, 85, 90);
     strokeWeight(2.5);
     fill(255, 248, 249);
@@ -54,14 +64,21 @@ class SheepDancer {
 
     line(42, 12, 61, 15 - this.armSwing);
     circle(61, 15 - this.armSwing, 8);
-    //legs
+  }
+
+  drawLegs() {
+    stroke(105, 85, 90);
+    strokeWeight(2.5);
+    fill(255, 248, 249);
+
     line(-20, 37, -24 + this.legSwing, 65);
     circle(-24 + this.legSwing, 65, 9);
 
     line(20, 37, 24 - this.legSwing, 65);
     circle(24 - this.legSwing, 65, 9);
+  }
 
-    //ears
+  drawEars() {
     stroke(105, 85, 90);
     strokeWeight(2);
     fill(255, 225, 232);
@@ -77,8 +94,9 @@ class SheepDancer {
     rotate(15 - this.earSwing);
     triangle(0, 0, 22, -10, 10, 15);
     pop();
+  }
 
-    //body
+  drawBody() {
     fill(255, 250, 251);
     stroke(105, 85, 90);
     strokeWeight(2);
@@ -97,56 +115,44 @@ class SheepDancer {
     noStroke();
     fill(255, 250, 251);
     ellipse(0, 0, 90, 86);
+  }
 
-    //horns
+  drawHorns() {
     noFill();
     stroke(240, 194, 93);
     strokeWeight(3);
 
     arc(-14, -20, 18, 18, 40, 320);
     arc(14, -20, 18, 18, 220, 500);
+  }
 
-    //eyes
+  drawEyes() {
     noStroke();
     fill(75, 55, 65);
+
     ellipse(-19, 2, 13, 19);
     ellipse(19, 2, 13, 19);
 
     fill(255);
     circle(-16, -3, 5);
     circle(22, -3, 5);
+  }
 
-    //blush
+  drawBlush() {
+    noStroke();
     fill(255, 201, 211, 150);
+
     ellipse(-34, 17, 17, 9);
     ellipse(34, 17, 17, 9);
+  }
 
-    //cute hair
+  drawHair() {
     noFill();
     stroke(240, 194, 93);
     strokeWeight(2.5);
+
     arc(0, -27, 18, 16, 180, 360);
     arc(8, -21, 10, 14, 0, 220);
-
-    // the next function draws a SQUARE and CROSS
-    // to indicate the approximate size and the center point
-    // of your dancer.
-    // it is using "this" because this function, too, 
-    // is a part if your Dancer object.
-    // comment it out or delete it eventually.
-    //this.drawReferenceShapes()
-
-    pop();
-  }
-
-  drawReferenceShapes() {
-    noFill();
-    stroke(255, 0, 0);
-    line(-5, 0, 5, 0);
-    line(0, -5, 0, 5);
-    stroke(255);
-    rect(-100, -100, 200, 200);
-    fill(255);
-    stroke(0);
   }
 }
+
