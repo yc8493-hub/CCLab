@@ -3,7 +3,6 @@ let dancer;
 function setup() {
   // no adjustments in the setup function needed...
   createCanvas(windowWidth, windowHeight);
-  angleMode(DEGREES);
 
   // ...except to adjust the dancer's name on the next line:
   dancer = new SheepDancer(width / 2, height / 2);
@@ -40,6 +39,7 @@ class SheepDancer {
   }
   display() {
     push();
+    angleMode(DEGREES);
     translate(this.x, this.y + this.bounce);
     rotate(this.bodySwing);
 
