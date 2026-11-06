@@ -42,7 +42,6 @@ class SheepDancer {
   }
   update() {
 
-
     this.time += 1;
     this.bodySwing = sin(this.time * 3) * 12;
     this.armSwing = sin(this.time * 5) * 12;
