@@ -185,15 +185,12 @@ class Concert {
         p.display();
       }
     }
-
     // Mouse star
     if (this.time > 480) {
       this.showStar();
     }
+    this.showExit();
 
-    if (this.time > 720) { //exit button appears after 720 frames (12 seconds)
-      this.showExit();
-    }
   }
 
   startConcert() {
@@ -214,15 +211,12 @@ class Concert {
     translate(this.x, this.y);
 
     noStroke();
-
     // Outer glow
     fill(230, 210, 255, 10 * this.light);
     ellipse(0, 0, 150, 50);
-
     // Inner glow
     fill(230, 210, 255, 25 * this.light);
     ellipse(0, 0, 120, 35);
-
     // Stage
     fill(80, 75, 90, 255 * this.light);
     ellipse(0, 0, 90, 22);
@@ -235,10 +229,8 @@ class Concert {
     translate(this.x, this.y);
 
     noStroke();
-
     for (let i = 0; i < 15; i++) {
       fill(230, 220, 255, 6 * this.light);
-
       triangle(0, -400, -60 + i * 3, 0, 60 - i * 3, 0);
     }
 
@@ -253,9 +245,7 @@ class Concert {
     noStroke();
     fill(20, 255 * this.light);
 
-    // Head
     circle(0, -75, 24);
-
     // Body
     beginShape();
     vertex(-12, -60);
@@ -272,15 +262,12 @@ class Concert {
     translate(mouseX, mouseY);
 
     noStroke();
-
     // Outer glow
     fill(255, 255, 255, 15);
     circle(0, 0, 25);
-
     // Inner glow
     fill(255, 255, 255, 60);
     circle(0, 0, 12);
-
     // Star
     fill(255);
     circle(0, 0, 5);
@@ -301,11 +288,9 @@ class Concert {
   }
 
   checkMouse() {
-    if (this.time > 720) {
-      if (mouseX > width - 150 && mouseX < width &&
-        mouseY > 0 && mouseY < 60) {
-        currentScene = "diary";
-      }
+    if (mouseX > width - 150 && mouseX < width &&
+      mouseY > 0 && mouseY < 60) {
+      currentScene = "diary";
     }
   }
 }
