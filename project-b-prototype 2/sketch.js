@@ -1,4 +1,3 @@
-
 let desktopImg;
 let closedDiaryImg;
 let openedDiaryImg;
